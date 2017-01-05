@@ -14,6 +14,8 @@ public class DiceController {
     public String rollDice(){
         return "roll-dice";
     }
+
+
     @GetMapping ("/formatting")
     public String format(@PathVariable String productName, Model model){
         model.addAttribute("productName", productName);
