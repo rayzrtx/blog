@@ -8,6 +8,21 @@
 <body>
 <h1>Here are all of the magnificent posts!</h1>
 <p></p>
+<table class="table table-hover">
+    <tr>
+        <th>ID</th>
+        <th>TITLE</th>
+        <th>BODY</th>
+    </tr>
+    <tr th:each="p : ${posts}">
+        <td th:text="${p.id}">001</td>
+        <td th:text="${p.title}">title</td>
+        <td th:text="${p.body}">body</td>
+        <td><img src="http://placehold.it/64x64" /></td>
+    </tr>
+</table>
+<p></p>
+<a href="/posts/create">Create another post</a>
 
 </body>
 </html>

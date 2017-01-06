@@ -27,19 +27,29 @@ public class PostsController {
         m.addAttribute("post", new Post());
         return "posts/create";
     }
-    @PostMapping("/posts/create")
-    public String createPost(
-            @RequestParam(name = "id") Integer id,
-            @RequestParam(name = "title") String title,
-            @RequestParam(name = "body") String body) {
-        System.out.println("post submitted");
-        System.out.println(id);
-        System.out.println(title);
 
-        Post post = new Post();
-        post.setId(id);
-        post.setTitle(title);
-        post.setBody(body);
+    @PostMapping("/posts/create")
+    public String createPost(@ModelAttribute Post post) {
+        System.out.println("post submitted");
+        DaoFactory.getPostsDao().savePost(post); //save the posts
+
         return "redirect:/posts";
     }
 }
+
+
+
+
+
+    //@RequestParam(name = "id") Integer id,
+    //@RequestParam(name = "title") String title,
+    //
+// @RequestParam(name = "body") String body
+//System.out.println(id);
+  //      System.out.println(title);
+    //    System.out.println(body);
+
+      //  Post post = new Post();
+        //post.setId(id);
+        //post.setTitle(title);
+        //post.setBody(body);

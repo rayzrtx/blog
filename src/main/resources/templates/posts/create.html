@@ -10,15 +10,13 @@
 <h1>Create a new post here!</h1>
 <p></p>
 
-<form action="/posts/create" method="post">
+<form action="/posts/create" method="post" th:object="${post}">
     <div class="form-group">
-        ID:
-        <input name="id" type="text" class="form-control" />
         Title of post:
-        <input name="title" type="text" class="form-control" />
+        <input th:field="*{title}" type="text" class="form-control" />
         <br/>
         Body of post:
-        <input name="body" type="text" class="form-control" />
+        <input th:field="*{body}" type="text" class="form-control" />
         <br/>
         <button type="submit" class="btn btn-primary">Submit Post</button>
     </div>
