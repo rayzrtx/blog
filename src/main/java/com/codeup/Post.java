@@ -5,7 +5,7 @@ import javax.xml.soap.Text;
 /**
  * Created by raylinares on 1/5/17.
  */
-public class Post {
+public class Post {     // list variables needed and create all getters and setters for each variable for new object
     private long id;
     private String title;
 
