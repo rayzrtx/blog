@@ -1,6 +1,9 @@
 package com.codeup;
 
+import org.hibernate.validator.constraints.NotBlank;
+
 import javax.persistence.*;
+import javax.validation.constraints.Size;
 import javax.xml.soap.Text;
 
 /**
@@ -13,10 +16,13 @@ public class Post {     // list variables needed and create all getters and sett
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
+    @NotBlank(message = "Title can't be empty.")                        // Alert if title is blank
+    @Size(min = 3, message = "A title must be at least 3 characters.") //Alert if title is not at least 3 characters long
     @Column(nullable = false)
     private String title;
 
-    @Column(nullable = false)
+    @NotBlank(message = "Body can't be empty.")     //Alert if body is empty
+    @Column(nullable = false, length = 65000)
     private String body;
 
     public Post(long id, String title, String body){

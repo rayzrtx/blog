@@ -18,6 +18,7 @@
         <td th:text="${p.id}">001</td>
         <td th:text="${p.title}">title</td>
         <td th:text="${p.body}">body</td>
+        <td><a class="btn btn-primary" th:href="@{'/posts/'+ ${p.id} }">Show Post</a></td>
         <td><img src="http://placehold.it/64x64" /></td>
     </tr>
 </table>

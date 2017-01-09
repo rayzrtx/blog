@@ -2,11 +2,7 @@ package com.codeup;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -18,13 +14,13 @@ public class PostsController {
 
     @GetMapping("/posts")
     public String index(Model m){
-        List<Post> posts = DaoFactory.getPostsDao().allPosts();
+        List<Post> posts = DaoFactory.getPostsDao().allPosts(); //to show all posts in db
         m.addAttribute("posts", posts);
         return "posts/index";
     }
     @GetMapping("/posts/create")
     public String createForm(Model m){
-        m.addAttribute("post", new Post());
+        m.addAttribute("post", new Post());   //to create a new blog post via the form
         return "posts/create";
     }
 
@@ -34,6 +30,12 @@ public class PostsController {
         DaoFactory.getPostsDao().savePost(post); //save the posts
 
         return "redirect:/posts";
+    }
+    @GetMapping("/posts/{id}")
+    public String showSinglePost(@PathVariable int id, Model m){
+        Post post = DaoFactory.getPostsDao().findPost(id); //find a post based on post id and display on own page
+        m.addAttribute("post", post);
+        return "posts/show";
     }
 }
 

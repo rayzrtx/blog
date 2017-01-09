@@ -21,5 +21,7 @@ public class ListPosts implements Posts {
         post.setId(posts.size() + 1);
         posts.add(post);
     }
+    @Override
+    public Post findPost(long id){return null;}
 
 }

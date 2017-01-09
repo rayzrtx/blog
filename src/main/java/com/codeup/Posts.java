@@ -8,6 +8,8 @@ import java.util.List;
 public interface Posts {
     List<Post> allPosts();  //returns a list of posts
     void savePost(Post post);   //
+
+    Post findPost(long id);
 }
 
 
