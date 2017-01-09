@@ -1,5 +1,6 @@
 package com.codeup;
 
+import com.sun.org.apache.xpath.internal.operations.Mod;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -36,6 +37,22 @@ public class PostsController {
         Post post = DaoFactory.getPostsDao().findPost(id); //find a post based on post id and display on own page
         m.addAttribute("post", post);
         return "posts/show";
+    }
+    @GetMapping("/posts/{id}/edit")
+    public String showEditForm(@PathVariable long id, Model m){
+        Post post = DaoFactory.getPostsDao().findPost(id);  //use the passed id to find the record in db
+        m.addAttribute("post", post);                       //add to the model
+        return "posts/edit";
+    }
+    @PostMapping("/posts/{id}/edit")
+    public String updatePost(@ModelAttribute Post editedPost, @PathVariable long id){
+        Post post = DaoFactory.getPostsDao().findPost(id);  //use the passed id to find the record in db
+        String updatedTitle = editedPost.getTitle();        //assigning updated title to new variable
+        String updatedBody = editedPost.getBody();          //assigning updated body to new variable
+        post.setTitle(updatedTitle);                        //updating title with updated title
+        post.setBody(updatedBody);                          //updating body with updated body
+        DaoFactory.getPostsDao().updatePost(post);          //updating record in db
+        return "redirect:/posts/" + post.getId();
     }
 }
 

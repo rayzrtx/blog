@@ -32,5 +32,11 @@ public class HibernatePostsDao implements Posts {
         query.setParameter("id", id);
         return (Post) query.getSingleResult();
     }
+    @Override
+    public void updatePost(Post post){
+        Transaction tx = session.beginTransaction();
+        session.update(post);
+        tx.commit();
+    }
 
 }

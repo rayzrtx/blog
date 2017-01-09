@@ -24,4 +24,7 @@ public class ListPosts implements Posts {
     @Override
     public Post findPost(long id){return null;}
 
+    @Override
+    public void updatePost(Post post){}
+
 }

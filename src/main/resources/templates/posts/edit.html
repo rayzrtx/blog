@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Create a post!</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous" />
+    <style>
+        body{
+            text-align: center;
+        }
+        div{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<h1>Edit your post here!</h1>
+<p></p>
+
+<form class="form-group" th:action="@{'/posts/'+ *{id} + '/edit'}" th:method="POST" th:object="${post}">
+    <div class="form-group col-xs-4">
+        Title of post:
+        <input th:field="*{title}" type="text" class="form-control" />
+        <br/>
+        Body of post:
+        <textarea th:field="*{body}" type="text" class="form-control" rows="20" cols="20"></textarea>
+        <br/>
+        <button type="submit" class="btn btn-primary">Submit Post</button>
+    </div>
+</form>
+</body>
+</html>

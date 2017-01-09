@@ -10,6 +10,8 @@ public interface Posts {
     void savePost(Post post);   //
 
     Post findPost(long id);
+
+    void updatePost(Post post);
 }
 
 
