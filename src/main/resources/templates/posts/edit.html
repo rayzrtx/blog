@@ -27,7 +27,13 @@
         <textarea th:field="*{body}" type="text" class="form-control" rows="20" cols="20"></textarea>
         <br/>
         <button type="submit" class="btn btn-primary">Submit Post</button>
+        <a class="btn btn-secondary" href="/posts">Cancel</a>
     </div>
+</form>
+<form class="form-group" th:action="@{'/posts/'+ ${post.id} +'/delete' }" th:method="post" th:object="${post}">
+    <div class="form-group col-xs-4">
+    <button class="btn btn-danger" type="submit">Delete Post</button>
+        </div>
 </form>
 </body>
 </html>

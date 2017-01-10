@@ -18,8 +18,9 @@
             <h3 th:text="*{title}"></h3>
             <p th:text="*{body}"></p>
             <a class="btn btn-primary" th:href="@{'/posts/'+ ${post.id} +'/edit' }">Edit Post</a>
-            <a class="btn btn-primary" href="/posts">All Posts</a>
         </div>
+        <p></p>
+        <a class="btn btn-secondary" href="/posts">All Posts</a>
     </div>
 </body>
 </html>

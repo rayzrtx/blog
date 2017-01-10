@@ -54,6 +54,12 @@ public class PostsController {
         DaoFactory.getPostsDao().updatePost(post);          //updating record in db
         return "redirect:/posts/" + post.getId();
     }
+    @PostMapping("/posts/{id}/delete")
+    public String deletePost(@PathVariable long id){
+        Post post = DaoFactory.getPostsDao().findPost(id);
+        DaoFactory.getPostsDao().deletePost(post);
+        return "redirect:/posts";
+    }
 }
 
 

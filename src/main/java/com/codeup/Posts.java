@@ -12,6 +12,8 @@ public interface Posts {
     Post findPost(long id);
 
     void updatePost(Post post);
+    void deletePost(Post post);
+
 }
 
 

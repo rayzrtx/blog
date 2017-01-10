@@ -27,4 +27,7 @@ public class ListPosts implements Posts {
     @Override
     public void updatePost(Post post){}
 
+    @Override
+    public void deletePost(Post post){}
+
 }
