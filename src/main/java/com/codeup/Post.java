@@ -17,7 +17,7 @@ public class Post {     // list variables needed and create all getters and sett
     private long id;
 
     @NotBlank(message = "Title can't be empty.")                        // Alert if title is blank
-    @Size(min = 3, message = "A title must be at least 3 characters.") //Alert if title is not at least 3 characters long
+    @Size(min = 2, message = "A title must be at least 2 characters.") //Alert if title is not at least 2 characters long
     @Column(nullable = false)
     private String title;
 

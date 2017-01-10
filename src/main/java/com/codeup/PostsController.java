@@ -3,8 +3,10 @@ package com.codeup;
 import com.sun.org.apache.xpath.internal.operations.Mod;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 /**
@@ -26,8 +28,13 @@ public class PostsController {
     }
 
     @PostMapping("/posts/create")
-    public String createPost(@ModelAttribute Post post) {
-        System.out.println("post submitted");
+    public String createPost(@Valid Post post, Errors validation, Model m) {
+        if(validation.hasErrors()){
+            m.addAttribute("errors", validation);       //validating that post meets minimum requirements set in Post
+            m.addAttribute("post", post);
+            return "/posts/create";
+        }
+
         DaoFactory.getPostsDao().savePost(post); //save the posts
 
         return "redirect:/posts";
@@ -45,8 +52,14 @@ public class PostsController {
         return "posts/edit";
     }
     @PostMapping("/posts/{id}/edit")
-    public String updatePost(@ModelAttribute Post editedPost, @PathVariable long id){
-        Post post = DaoFactory.getPostsDao().findPost(id);  //use the passed id to find the record in db
+    public String updatePost(@Valid Post editedPost, Errors validation, Model m){
+        if (validation.hasErrors()){
+            m.addAttribute("errors", validation);       //validating that post meets minimum requirements set in Post
+            m.addAttribute("post", editedPost);
+            return "/posts/edit";
+        }
+
+        Post post = DaoFactory.getPostsDao().findPost(editedPost.getId());  //use the passed id to find the record in db
         String updatedTitle = editedPost.getTitle();        //assigning updated title to new variable
         String updatedBody = editedPost.getBody();          //assigning updated body to new variable
         post.setTitle(updatedTitle);                        //updating title with updated title

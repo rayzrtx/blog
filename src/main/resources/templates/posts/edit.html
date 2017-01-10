@@ -23,9 +23,11 @@
         Title of post:
         <input th:field="*{title}" type="text" class="form-control" />
         <br/>
+        <p class="alert alert-danger" th:if="${#fields.hasErrors('title')}" th:errors="*{title}"></p>
         Body of post:
         <textarea th:field="*{body}" type="text" class="form-control" rows="20" cols="20"></textarea>
         <br/>
+        <p class="alert alert-danger" th:if="${#fields.hasErrors('body')}" th:errors="*{body}"></p>
         <button type="submit" class="btn btn-primary">Submit Post</button>
         <a class="btn btn-secondary" href="/posts">Cancel</a>
     </div>
