@@ -31,7 +31,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception{
         http
                 .formLogin()
-                    .loginPage("/login")
+                    .loginPage("/login")    //if not authenticated then will route to this page when trying to access a page you need to be logged in to
                     .defaultSuccessUrl("/me") // user's home page, it can be any URL
                     .permitAll() // Anyone can go to the login page
                 .and()
@@ -43,7 +43,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                     .logoutSuccessUrl("/login?logout") // append a query string value
                 .and()
                     .authorizeRequests()
-                    .antMatchers("/posts/create") // only authenticated users can create ads
+                    .antMatchers("/posts/create", "/posts/{id}/edit") // only authenticated users can create ads, edit ads
                     .authenticated()
             ;
         }
