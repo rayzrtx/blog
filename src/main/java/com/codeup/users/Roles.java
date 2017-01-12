@@ -1,4 +1,4 @@
-package com.codeup;
+package com.codeup.users;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;

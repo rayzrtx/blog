@@ -1,4 +1,4 @@
-package com.codeup;
+package com.codeup.posts;
 
 import java.util.ArrayList;
 import java.util.List;

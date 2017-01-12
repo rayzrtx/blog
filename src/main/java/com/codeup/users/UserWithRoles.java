@@ -1,12 +1,10 @@
-package com.codeup;
+package com.codeup.users;
 
-import com.sun.deploy.util.StringUtils;
-import org.hibernate.mapping.Collection;
+import com.codeup.users.User;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import java.util.Collections;
 import java.util.List;
 
 /**

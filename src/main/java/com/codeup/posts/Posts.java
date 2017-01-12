@@ -1,4 +1,6 @@
-package com.codeup;
+package com.codeup.posts;
+
+import com.codeup.posts.Post;
 
 import java.util.List;
 

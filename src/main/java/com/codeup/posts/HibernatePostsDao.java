@@ -1,4 +1,4 @@
-package com.codeup;
+package com.codeup.posts;
 
 import org.hibernate.Session;
 import org.hibernate.Transaction;

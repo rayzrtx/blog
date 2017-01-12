@@ -1,5 +1,6 @@
-package com.codeup;
+package com.codeup.users;
 
+import com.codeup.users.User;
 import org.springframework.data.repository.CrudRepository;
 
 /**

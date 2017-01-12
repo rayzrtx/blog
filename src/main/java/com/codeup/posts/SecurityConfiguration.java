@@ -1,5 +1,7 @@
-package com.codeup;
+package com.codeup.posts;
 
+import com.codeup.users.UserDetailsLoader;
+import com.codeup.users.UserWithRoles;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;

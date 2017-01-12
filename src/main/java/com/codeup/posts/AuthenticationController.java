@@ -1,4 +1,4 @@
-package com.codeup;
+package com.codeup.posts;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

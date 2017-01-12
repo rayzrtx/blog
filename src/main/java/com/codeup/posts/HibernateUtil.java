@@ -1,4 +1,4 @@
-package com.codeup;
+package com.codeup.posts;
 
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.MetadataSources;

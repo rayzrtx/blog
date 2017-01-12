@@ -1,6 +1,7 @@
-package com.codeup;
+package com.codeup.posts;
 
-import com.sun.org.apache.xpath.internal.operations.Mod;
+import com.codeup.posts.DaoFactory;
+import com.codeup.posts.Post;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;

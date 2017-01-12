@@ -1,4 +1,4 @@
-package com.codeup;
+package com.codeup.users;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
