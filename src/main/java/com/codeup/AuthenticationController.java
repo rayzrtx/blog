@@ -12,4 +12,8 @@ public class AuthenticationController {
     public String showLoginForm() {
         return "posts/login";
     }
+    @GetMapping("/posts/register")
+    public String showRegisterForm(){
+        return "posts/register";
+    }
 }
